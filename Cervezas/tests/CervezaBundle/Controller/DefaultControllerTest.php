@@ -1,6 +1,6 @@
 <?php
 
-namespace CervezasBundle\Tests\Controller;
+namespace CervezaBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

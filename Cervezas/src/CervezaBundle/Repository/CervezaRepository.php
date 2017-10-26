@@ -1,6 +1,6 @@
 <?php
 
-namespace CervezasBundle\Repository;
+namespace CervezaBundle\Repository;
 
 /**
  * CervezaRepository

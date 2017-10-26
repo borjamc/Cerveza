@@ -1,0 +1,35 @@
+CervezaBundle\Entity\Cerveza:
+    type: entity
+    table: null
+    repositoryClass: CervezaBundle\Repository\CervezaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: 255
+        pais:
+            type: string
+            length: 255
+        poblacion:
+            type: string
+            length: 255
+        tipo:
+            type: string
+            length: 255
+        importacion:
+            type: boolean
+        tamano:
+            type: integer
+        fechaAlmacen:
+            type: date
+        cantidad:
+            type: integer
+        foto:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,86 +1,59 @@
 <?php
 
-namespace CervezasBundle\Entity;
-
-use Doctrine\ORM\Mapping as ORM;
+namespace CervezaBundle\Entity;
 
 /**
  * Cerveza
- *
- * @ORM\Table(name="cerveza")
- * @ORM\Entity(repositoryClass="CervezasBundle\Repository\CervezaRepository")
  */
 class Cerveza
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="pais", type="string", length=255)
      */
     private $pais;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="poblacion", type="string", length=255)
      */
     private $poblacion;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="tipo", type="string", length=255)
      */
     private $tipo;
 
     /**
      * @var bool
-     *
-     * @ORM\Column(name="importacion", type="boolean")
      */
     private $importacion;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="tamanyo", type="integer")
      */
-    private $tamanyo;
+    private $tamano;
 
     /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="fechaAlmacen", type="date")
      */
     private $fechaAlmacen;
 
     /**
      * @var int
-     *
-     * @ORM\Column(name="cantidad", type="integer")
      */
     private $cantidad;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="foto", type="string", length=255)
      */
     private $foto;
 
@@ -216,27 +189,27 @@ class Cerveza
     }
 
     /**
-     * Set tamanyo
+     * Set tamano
      *
-     * @param integer $tamanyo
+     * @param integer $tamano
      *
      * @return Cerveza
      */
-    public function setTamanyo($tamanyo)
+    public function setTamano($tamano)
     {
-        $this->tamanyo = $tamanyo;
+        $this->tamano = $tamano;
 
         return $this;
     }
 
     /**
-     * Get tamanyo
+     * Get tamano
      *
      * @return int
      */
-    public function getTamanyo()
+    public function getTamano()
     {
-        return $this->tamanyo;
+        return $this->tamano;
     }
 
     /**

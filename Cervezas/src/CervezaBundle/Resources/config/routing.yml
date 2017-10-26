@@ -1,0 +1,11 @@
+cerveza_homepage:
+    path:     /{id}
+    defaults: { _controller: CervezaBundle:Eventos:all, id:1 }
+
+cerveza_nombre:
+    path:     /cards
+    defaults: { _controller: CervezaBundle:Default:cards }
+
+all_eventos:
+    path:     /eventos/all
+    defaults: { _controller: CervezaBundle:Eventos:all }
