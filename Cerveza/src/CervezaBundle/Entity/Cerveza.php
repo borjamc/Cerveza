@@ -284,4 +284,3 @@ class Cerveza
         return $this->foto;
     }
 }
-

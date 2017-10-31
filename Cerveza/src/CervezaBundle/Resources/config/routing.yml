@@ -1,0 +1,11 @@
+cerveza_homepage:
+    path:     /
+    defaults: { _controller: CervezaBundle:Eventos:all}
+
+cerveza_cards:
+    path:     /cards
+    defaults: { _controller: CervezaBundle:Default:cards }
+
+cerveza_insertar:
+    path:     /insertar
+    defaults: { _controller: CervezaBundle:Eventos:insertar }
