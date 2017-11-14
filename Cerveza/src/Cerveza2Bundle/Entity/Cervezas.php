@@ -78,6 +78,10 @@ class Cervezas
     private $foto;
 
 
+    public function __toString(){
+        return $this->nombre;
+      }
+
     /**
      * Get id
      *
@@ -280,4 +284,3 @@ class Cervezas
         return $this->foto;
     }
 }
-

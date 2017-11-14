@@ -5,6 +5,8 @@ namespace Cerveza2Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Cerveza2Bundle\Entity\Cervezas;
+use Cerveza2Bundle\Form\CervezasType;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -14,6 +16,41 @@ class DefaultController extends Controller
     public function indexAction()
     {
         return $this->render('Cerveza2Bundle:Default:index.html.twig');
+    }
+
+    /**
+     * @Route("/algonuevo")
+     */
+    public function nuevoAction(Request $request)
+    {
+      $cerveza=new Cervezas();
+      $form=$this->createForm(CervezasType::class, $cerveza);
+      $form->handleRequest($request);
+
+      if ($form->isSubmitted() && $form->isValid()) {
+        $turismo=$form->getData();
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($turismo);
+        $em->flush();
+        return $this->redirectToRoute('cerveza2_mostrar_todo');
+      }
+      return $this->render('Cerveza2Bundle:Default:algonuevo.html.twig', array('form'=>$form->createView()));
+    }
+    /**
+     * @Route("/actualizarnuevo/{id}")
+     */
+    public function editarCervezaAction(Request $request, $id)
+    {
+      $cerveza=$this->getDoctrine()->getRepository(Cervezas::class)->find($id);
+      $form=$this->createForm(CervezasType::class, $cerveza);
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+         $em = $this->getDoctrine()->getManager();
+         $em->persist($cerveza);
+         $em->flush();
+         return $this->redirectToRoute('cerveza2_mostrar_todo');
+       }
+      return $this-> render('Cerveza2Bundle:Default:algonuevo.html.twig', array('form'=>$form->createView()));
     }
 
     /**
