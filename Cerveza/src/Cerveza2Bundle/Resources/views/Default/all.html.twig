@@ -4,5 +4,6 @@
         <p>{{cerveza.poblacion}}, {{cerveza.pais}}</p>
         <p>{{cerveza.tipo}}, {{cerveza.tamano}}</p>
         <p>{{cerveza.cantidad}}, {{cerveza.importacion}}</p>
+        <p><a href="{{ path('borrar', {'id': cerveza.id}) }}">Borrar</a></p> 
       {% endfor %}
 </ul>

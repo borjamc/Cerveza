@@ -97,17 +97,17 @@ class DefaultController extends Controller
 
     return $this->render('Cerveza2Bundle:Default:insertar.html.twig',array("cervezaId"=>$cerveza->getId()));
 }
+
     /**
-     * @Route("/actualizar/{id}/{nombre}", name="cerveza2_actualizar")
-     */
+         * @Route("/borrar/{id}", name="borrar")
+         */
+        public function borrarAction($id)
+        {
+          $db=$this->getDoctrine()->getManager();
+          $eliminar = $db ->getRepository(Cervezas::class)->find($id);
+          $db->remove($eliminar);
+          $db->flush();
+            return $this->redirectToRoute('cerveza2_mostrar_todo');
+        }
 
-    public function actualizarAction($nombre,$id)
-    {
-      $em = $this->getDoctrine()->getManager();
-      $cerveza = $em->getRepository(Cervezas::class)->find($id);
-      $cerveza->setNombre($nombre);
-      $em->flush();
-
-      return $this->redirectToRoute('cerveza2_mostrar_todo');
-}
 }
